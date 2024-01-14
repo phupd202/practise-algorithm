@@ -23,7 +23,7 @@ public class RemoveTarget {
 
     public static void main(String[] args) {
         int[] nums = {3, 2, 2, 3};
-        int k = removeElement(nums, 2);
+        int k = removeElement(nums, 3);
 
         for (int i = 0; i < k; i++) {
             System.out.print(nums[i] + " ");
