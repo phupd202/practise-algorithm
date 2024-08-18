@@ -1,3 +1,5 @@
+package string;
+
 public class MakeSubsequence {
     public static void main(String[] args) {
     }
