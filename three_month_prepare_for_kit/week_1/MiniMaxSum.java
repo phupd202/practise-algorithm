@@ -16,7 +16,7 @@ import java.util.List;
 public class MiniMaxSum {
     public static void miniMaxSum(List<Integer> arr) {
         // sorting with quicksort
-        quickSort(arr, 0, arr.size());
+        quickSort(arr, 0, arr.size() - 1);
 
         long minSum = 0;
         for (int i = 0; i < 4; i++) {
