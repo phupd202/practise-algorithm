@@ -3,15 +3,13 @@ package three_month_prepare_for_kit.week_1;
 public class TimeConversion {
     public static String timeConversion(String s) {
         /*
-         * PM: Cộng h với thực tế với 12, trừ th 12PM
-         * AM: Giữ nguyên, trừ trường hợp 12hAM
+         * PM: Cộng h với thực tế với 12, ngoại trừ th đặc biệt 12:...PM
+         * AM: Giữ nguyên, trừ trường hợp đặc biệt12:...AM
          */
         Integer len = s.length();
         String preString = s.substring(0, len - 2);
         String timeComponent[] = preString.split(":");
         String posString = s.substring(len - 2, len);
-
-        String formatMilitary = "";
         switch (posString) {
             case "PM":
                 if(timeComponent[0].equals("12")) {
@@ -29,7 +27,7 @@ public class TimeConversion {
             default:
                 break;
         }
-        return formatMilitary;
+        return null;
     }
 
     public static void main(String[] args) {
