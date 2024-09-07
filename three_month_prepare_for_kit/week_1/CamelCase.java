@@ -7,21 +7,21 @@ public class CamelCase {
         Scanner scanner = new Scanner(System.in);
 
         // Read data
-        // while (scanner.hasNextLine()) {
-        //     String input = scanner.nextLine();
-        //     String[] parts = input.split(";");
-        //     String operation = parts[0];
-        //     String type = parts[1];
-        //     String words = parts[2];
+        while (scanner.hasNextLine()) {
+            String input = scanner.nextLine();
+            String[] parts = input.split(";");
+            String operation = parts[0];
+            String type = parts[1];
+            String words = parts[2];
 
-        //     if (operation.equals("S")) {
-        //         // Case: split
-        //         System.out.println(splitCamelCase(words, type));
-        //     } else if (operation.equals("C")) {
-        //         // Case: combine
-        //         System.out.println(combineToCamelCase(words, type));
-        //     }
-        // }
+            if (operation.equals("S")) {
+                // Case: split
+                System.out.println(splitCamelCase(words, type));
+            } else if (operation.equals("C")) {
+                // Case: combine
+                System.out.println(combineToCamelCase(words, type));
+            }
+        }
         // scanner.close();
 
         // Test 
