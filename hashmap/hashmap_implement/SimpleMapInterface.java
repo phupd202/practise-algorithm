@@ -1,6 +1,5 @@
 package hashmap.hashmap_implement;
 
-import java.util.List;
 /*
  * Build a simple map follow to Map (Collections Framework - Java)
  */
