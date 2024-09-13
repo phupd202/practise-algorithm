@@ -1,5 +1,6 @@
 package hashmap.hashmap_implement;
 
+import java.util.Arrays;
 import java.util.Set;
 
 /*
@@ -69,28 +70,18 @@ public class SimpleHashMap<K, V extends Comparable<V>> implements SimpleMapInter
                 this.values = newValues;
             }
 
-            // Remain a sorted array
-            if(value.compareTo(values[n - 1]) >= 0) {
-                keys[n] = key;
-                values[n] = value;
-                n++;
-            } else {
-                int posInsert = -1;
-                for (int i = n - 1; i >= 0; i--) {
-                    if(value.compareTo(values[i]) >= 0) {
-                        posInsert = i;
-                    }
-                }
-
-                // move array
-                for (int i = n; i >= posInsert + 1; i--) {
-                    values[i] = values[i - 1];
-                    keys[i] = keys[i - 1];
-                }
-                keys[posInsert] = key;
-                values[posInsert] = value;
-                n++;
+            // binary search
+            int posInsert = Arrays.binarySearch(values, 0, n, value);
+            if(posInsert < 0) {
+                posInsert = - posInsert - 1;
             }
+
+            System.arraycopy(keys, posInsert, keys, posInsert + 1, n - posInsert);
+            System.arraycopy(values, posInsert, values, posInsert + 1, n - posInsert);
+
+            keys[posInsert] = key;
+            values[posInsert] = value;
+            n++;
             return true;
         }
     }
