@@ -5,7 +5,7 @@ package hashmap.hashmap_implement;
  */
 import java.util.Set;
 
-public interface SimpleMapInterface<K, V> {
+public interface SimpleMapInterface<K, V extends Comparable<V>> {
     // put with key and value
     Boolean put(K key, V value);
 

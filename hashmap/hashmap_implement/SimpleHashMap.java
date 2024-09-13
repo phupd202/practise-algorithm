@@ -6,7 +6,7 @@ import java.util.Set;
  * Implement a simple hashmp
  * Using 2 same size array
  */
-public class SimpleHashMap<K, V> implements SimpleMapInterface<K, V>{
+public class SimpleHashMap<K, V extends Comparable<V>> implements SimpleMapInterface<K, V>{
     private K[] keys;
     private V[] values;
     private int n = 0; // count item already existed in the map
@@ -68,20 +68,31 @@ public class SimpleHashMap<K, V> implements SimpleMapInterface<K, V>{
                 this.keys = newKeys;
                 this.values = newValues;
             }
-            keys[n] = key;
-            values[n] = value;
-            n++;
+
+            // Remain a sorted array
+            if(value.compareTo(values[n - 1]) >= 0) {
+                keys[n] = key;
+                values[n] = value;
+                n++;
+            } else {
+                int posInsert = -1;
+                for (int i = n - 1; i >= 0; i--) {
+                    if(value.compareTo(values[i]) >= 0) {
+                        posInsert = i;
+                    }
+                }
+
+                // move array
+                for (int i = n; i >= posInsert + 1; i--) {
+                    values[i] = values[i - 1];
+                    keys[i] = keys[i - 1];
+                }
+                keys[posInsert] = key;
+                values[posInsert] = value;
+                n++;
+            }
             return true;
         }
-    }
-
-    private Boolean checkExistedItem(K[] array, K item, int begin, int end) {
-        for (int i = begin; i < end; i++) {
-            if(array[i].equals(item)) {
-                return true;
-            }
-        }
-        return false;
     }
 
     @Override
