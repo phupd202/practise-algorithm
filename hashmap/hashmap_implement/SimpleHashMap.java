@@ -50,24 +50,18 @@ public class SimpleHashMap<K, V extends Comparable<V>> implements SimpleMapInter
             n++;
             return true;
         } else {
+            // if not existed --> insert
+            if(this.size() >= defaultSize) {
+                defaultSize *= 2;
+                keys = Arrays.copyOf(keys, defaultSize);
+                values = Arrays.copyOf(values, defaultSize);
+            }
+
             // check existed
             for (int i = 0; i < this.size(); i++) {
                 if(keys[i].equals(key)) {
                     return false;
                 }
-            }
-
-            // if not existed --> insert
-            if(this.size() >= defaultSize) {
-                // scale array if overflow
-                K[] newKeys = (K[]) new Object[defaultSize * 2];
-                V[] newValues = (V[]) new Object[defaultSize * 2];
-
-                // copy old item into new array
-                System.arraycopy(keys, 0, newKeys, 0, defaultSize);
-                System.arraycopy(values, 0, newValues, 0, defaultSize);
-                this.keys = newKeys;
-                this.values = newValues;
             }
 
             // binary search

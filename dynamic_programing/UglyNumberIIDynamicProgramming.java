@@ -2,7 +2,7 @@ package dynamic_programing;
 
 public class UglyNumberIIDynamicProgramming {
     public static int nthUglyNumber(int n) {
-        int uglyNumbers[] = new int[n];
+        int[] uglyNumbers = new int[n];
         uglyNumbers[0] = 1;
 
         int numberMultiOf2 = 2;
