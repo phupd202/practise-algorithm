@@ -14,7 +14,7 @@ public class LargetBigNumber {
 
         Collections.sort(numsList, (a, b) -> (b + a).compareTo(a + b));
 
-        if(numsList.get(0).equals(0)) {
+        if(numsList.get(0).equals("0")) {
             return "0";
         }
         StringBuilder bigNumber = new StringBuilder();
