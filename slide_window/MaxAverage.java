@@ -17,7 +17,7 @@ public class MaxAverage {
         double maxSum = sum;
         for (int i = top; bot + 1 < nums.length; i++) {
             sum = sum - nums[i - 1] + nums[bot++];
-            if(sum > maxSum) maxSum = sum;
+            maxSum = Math.max(sum, maxSum);
         }
         return maxSum / k;
     }
