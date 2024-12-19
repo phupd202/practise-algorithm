@@ -1,4 +1,4 @@
-package daily_problem;
+package medium;
 
 import java.util.ArrayList;
 import java.util.Collections;
